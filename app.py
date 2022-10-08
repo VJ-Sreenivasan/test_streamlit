@@ -17,9 +17,9 @@ st.title('Hello Group 8!')
 
 st.write('Welcome to final project!')
 
-st.write(dfc)
-st.write(hist_dfc)
+st.dataframe(dfc)
+st.dataframe(hist_dfc)
 
 df_c = hist_dfc[['Adj Close']]
-df_c.plot(xlabel = 'Time', ylabel='Adj Close', marker='o', legend = False, figsize = (20, 5))
-plt.show()
+# df_c.plot(xlabel = 'Time', ylabel='Adj Close', marker='o', legend = False, figsize = (20, 5))
+# plt.show()
