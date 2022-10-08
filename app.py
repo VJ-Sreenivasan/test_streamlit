@@ -17,7 +17,7 @@ st.title('Hello Group 8!')
 
 st.write('Welcome to final project!')
 
-st.dataframe(dfc)
+# st.dataframe(dfc)
 st.dataframe(hist_dfc)
 
 df_c = hist_dfc[['Adj Close']]
