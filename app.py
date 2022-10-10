@@ -17,16 +17,15 @@ st.set_page_config(page_title="Virtual Market Analyst", page_icon="📈", layout
 st.header('Virtual Market Analyst')
 df = pd.read_csv('c_ticker_list.csv')
 
-selected_company = st.selectbox( 'Company', (df['Company_Ticker_list']))
-st.write(selected_company)
-
-s = "selected_company"
-st.write(re.search('\(([^)]+)', s).group(1))
+company = st.selectbox( 'Company', (df['Company_Ticker_list']))
+st.write(company)
+ticker=re.search('\(([^)]+)', company).group(1)
+st.write(str(ticker))
   
 # df_c.plot(xlabel = 'Time', ylabel='Adj Close', marker='o', legend = False, figsize = (20, 5))
 # plt.show()
 #dfp = yf.Ticker("DEEPAKFERT.NS")
-dfc = yf.Ticker(re.search('\(([^)]+)', s).group(1))
+dfc = yf.Ticker(str(ticker))
 # get stock info
 #msft.info
 
