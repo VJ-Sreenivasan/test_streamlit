@@ -7,3 +7,4 @@ pandas
 plotly
 streamlit
 scikit-learn
+python-utils
