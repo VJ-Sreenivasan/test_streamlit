@@ -35,6 +35,5 @@ dfc = yf.Ticker(str(ticker))
 hist_dfc = dfc.history(period='60mo', interval='1d', auto_adjust = False)
 hist_dfc.reset_index(inplace = True)
 
-x=hist_dfc['Date']
-y=hist_dfc['Adj Close']
-st.line_chart(y=hist_dfc['Adj Close'])
+
+st.line_chart(hist_dfc['Adj Close'])
