@@ -2,24 +2,22 @@
 import streamlit as st
 import yfinance as yf
 import matplotlib.pyplot as plt
+import pandas as pd
+from seaborn.relational import lineplot
+import plotly.express as px
+from PIL import Image
+import numpy as np
+import seaborn as sns
+import matplotlib.pyplot as plt
+from matplotlib import rc
+import utils as ut
 
-dfp = yf.Ticker("DEEPAKFERT.NS")
-dfc = yf.Ticker("CTSH")
-# get stock info
-#msft.info
 
-# get historical market data
-hist_dfp = dfp.history(period='120mo', interval='1d', auto_adjust = False)
-hist_dfc = dfc.history(period='120mo', interval='1d', auto_adjust = False)
-dfc.quarterly_financials.T
+st.set_page_config(page_title="Virtual Market Analyst", page_icon="📈", layout="centered")
+st.header('Virtual Market Analyst')
+df = pd.read_csv('listed_companies.csv')
 
-st.title('Hello Group 8!')
-
-st.write('Welcome to final project!')
-
-# st.dataframe(dfc)
-st.dataframe(hist_dfc)
-
-df_c = hist_dfc[['Adj Close']]
+values = st.selectbox( 'Select Values', (df['Ticker']))
+  
 # df_c.plot(xlabel = 'Time', ylabel='Adj Close', marker='o', legend = False, figsize = (20, 5))
 # plt.show()
