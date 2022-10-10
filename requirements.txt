@@ -9,3 +9,5 @@ streamlit
 scikit-learn
 python-utils
 utils
+fundamentalanalysis
+yfinance
