@@ -1,3 +1,9 @@
 yahoo-finance
 yfinance
 matplotlib
+seaborn
+numpy
+pandas
+plotly
+streamlit
+scikit-learn
