@@ -32,4 +32,4 @@ dfc = yf.Ticker(str(ticker))
 # get historical market data
 #hist_dfp = dfp.history(period='120mo', interval='1d', auto_adjust = False)
 # hist_dfc = dfc.history(period=str(months2)+'mo', interval='3mo', auto_adjust = False)
-hist_dfc = dfc.history(period=str(months2)+'mo', interval='1d', auto_adjust = False)
+hist_dfc = dfc.history(period='60mo', interval='1d', auto_adjust = False)
