@@ -37,4 +37,4 @@ hist_dfc.reset_index(inplace = True)
 
 x=hist_dfc['Date']
 y=hist_dfc['Adj Close']
-st.line_chart(x=x, y=y)
+st.line_chart(hist_dfc)
