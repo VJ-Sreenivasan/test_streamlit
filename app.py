@@ -30,10 +30,8 @@ ticker_data = yf.Ticker(str(ticker))
 #msft.info
 
 # get historical market data
-#hist_dfp = dfp.history(period='120mo', interval='1d', auto_adjust = False)
+# hist_dfp = dfp.history(period='120mo', interval='1d', auto_adjust = False)
 # hist_dfc = dfc.history(period=str(months2)+'mo', interval='3mo', auto_adjust = False)
 ticker_df = ticker_data.history(period='id', start='2010-5-31', end='2022-9-30')
-hist_dfc.reset_index(inplace = True)
-
-
-st.line_chart(hist_dfc['Adj Close'])
+# hist_dfc.reset_index(inplace = True)
+st.line_chart(hist_dfc.Close)
