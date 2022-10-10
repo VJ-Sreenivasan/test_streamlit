@@ -15,9 +15,9 @@ import utils as ut
 
 st.set_page_config(page_title="Virtual Market Analyst", page_icon="📈", layout="centered")
 st.header('Virtual Market Analyst')
-df = pd.read_csv('listed_companies.csv')
+df = pd.read_csv('c_ticker_list.csv')
 
-selected_company = st.selectbox( 'Company', (df['Company'] ,' - ', df['Ticker']))
+selected_company = st.selectbox( 'Company', (df['Company_Ticker_list']))
 
   
 # df_c.plot(xlabel = 'Time', ylabel='Adj Close', marker='o', legend = False, figsize = (20, 5))
