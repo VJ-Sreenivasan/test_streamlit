@@ -7,11 +7,9 @@ pandas
 plotly
 streamlit
 scikit-learn
-python-utils
 utils
 fundamentalanalysis
-yfinance
 feedparser
-moneycontrol
 beautifulsoup4
 transformers
+torch
