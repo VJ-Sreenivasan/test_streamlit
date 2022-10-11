@@ -49,10 +49,13 @@ st.line_chart(ticker_df.Close)
 income_statement_quarterly = fa.income_statement(str(ticker), fa_api_key, period="quarter")
 income_statement_quarterly = income_statement_quarterly.T.drop(income_statement_quarterly.T.index[-1])
 # income_statement_quarterly = income_statement_quarterly.reindex(index = income_statement_quarterly.index[::-1])
+income_statement_quarterly.index[income_statement_quarterly.index>= "2010-01"]
+income_statement_quarterly
+
 st.line_chart(income_statement_quarterly.revenue)
 
-st.write(income_statement_quarterly.columns)
-st.write(income_statement_quarterly.index.tolist())
+# st.write(income_statement_quarterly.columns)
+# st.write(income_statement_quarterly.index.tolist())
 
 finwiz_url = 'https://finviz.com/quote.ashx?t='
 news_tables = {}
