@@ -71,6 +71,9 @@ for file_name, news_table in news_tables.items():
     for x in news_table.findAll('tr'):
         # read the text from each tr tag into text
         # get text from a only
+        if x.a is none:
+          continue
+          
         text = x.a.get_text() 
         # splite text in the td tag into a list 
         date_scrape = x.td.text.split()
