@@ -14,4 +14,4 @@ yfinance
 feedparser
 moneycontrol
 beautifulsoup4
-
+transformers
