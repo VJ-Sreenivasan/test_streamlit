@@ -71,7 +71,7 @@ for file_name, news_table in news_tables.items():
     for x in news_table.findAll('tr'):
         # read the text from each tr tag into text
         # get text from a only
-        if x.a is none:
+        if x.a is None:
           continue
           
         text = x.a.get_text() 
