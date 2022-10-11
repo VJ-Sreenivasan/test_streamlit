@@ -11,3 +11,6 @@ python-utils
 utils
 fundamentalanalysis
 yfinance
+feedparser
+moneycontrol
+beautifulsoup4
