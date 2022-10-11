@@ -12,7 +12,6 @@ import matplotlib.pyplot as plt
 from matplotlib import rc
 import utils as ut
 import re
-import nltk
 from transformers import AutoTokenizer, AutoModelForSequenceClassification
 import torch
 import re
