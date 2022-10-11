@@ -52,6 +52,9 @@ income_statement_quarterly = income_statement_quarterly.T.drop(income_statement_
 income_statement_quarterly = income_statement_quarterly.reindex(index = income_statement_quarterly.index[::-1])
 st.write(income_statement_quarterly.columns)
 
+finwiz_url = 'https://finviz.com/quote.ashx?t='
+news_tables = {}
+
 url = finwiz_url + ticker
 req = Request(url=url,headers={'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:20.0) Gecko/20100101 Firefox/20.0'}) 
 response = urlopen(req)    
