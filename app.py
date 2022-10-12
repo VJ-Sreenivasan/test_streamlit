@@ -49,18 +49,18 @@ ticker_data = yf.Ticker(str(ticker))
 duration = st.selectbox( 'Duration', ('','1M', '6M', '1Y', '5Y'))
 curr_date=datetime.today()
 #   st.write('g8_1:',duration, curr_date)
-  if duration== '1M':
-    st_dt=curr_date - relativedelta(months=1)
-  elif duration== '6M':
-    st_dt = curr_date - relativedelta(months=6)
-  elif duration== '1Y':
-    st_dt = curr_date - relativedelta(months=12)
-  elif duration== '5Y':
-    st_dt = curr_date - relativedelta(months=60)
-  else:
-    st_dt = '2022-01-01'
-  ticker_df = ticker_data.history(period='1d', start=st_dt, end=curr_date.strftime('%Y-%m-%d'))
-  st.line_chart(ticker_df.Close)
+if duration== '1M':
+  st_dt=curr_date - relativedelta(months=1)
+elif duration== '6M':
+  st_dt = curr_date - relativedelta(months=6)
+elif duration== '1Y':
+  st_dt = curr_date - relativedelta(months=12)
+elif duration== '5Y':
+  st_dt = curr_date - relativedelta(months=60)
+else:
+  st_dt = '2022-01-01'
+ticker_df = ticker_data.history(period='1d', start=st_dt, end=curr_date.strftime('%Y-%m-%d'))
+st.line_chart(ticker_df.Close)
 
       
   
