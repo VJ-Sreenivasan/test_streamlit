@@ -22,16 +22,16 @@ from datetime import datetime
 
 
 fa_api_key = "9528170166318a21f58bf0270843c4f6"
-duration=None
+duration='1M'
 
 st.set_page_config(page_title="Virtual Market Analyst", page_icon="📈", layout="centered")
 st.header('Virtual Market Analyst')
 df = pd.read_csv('c_ticker_list.csv')
 
 company = st.selectbox( 'Company', (df['Company_Ticker_list']))
-st.write(company)
+# st.write(company)
 ticker=re.search('\(([^)]+)', company).group(1)
-st.write(str(ticker))
+# st.write(str(ticker))
   
 # df_c.plot(xlabel = 'Time', ylabel='Adj Close', marker='o', legend = False, figsize = (20, 5))
 # plt.show()
@@ -48,13 +48,30 @@ ticker_data = yf.Ticker(str(ticker))
 
 def show_stock_trend():
   curr_date=datetime.today().strftime('%Y-%m-%d')
-  st.write(duration, curr_date)
-  ticker_df = ticker_data.history(period='1d', start='2010-1-1', end=curr_date)
+  print('g8_1:',duration, curr_date)
+  match duration:
+    case '1M':
+      st_dt=curr_date - relativedelta(months=1)
+      print( st_dt)
+    case '6M':
+      st_dt = curr_date - relativedelta(months=6)
+      print( st_dt)
+    case '1Y':
+      st_dt = curr_date - relativedelta(months=12)
+      print( st_dt)
+    case '5Y':
+      st_dt = curr_date - relativedelta(months=60))
+      print( st_dt)
+    case _:
+      st_dt = '2022-01-01'
+  ticker_df = ticker_data.history(period='1d', start=st_dt, end=curr_date)
   st.line_chart(ticker_df.Close)
+
+      
   
 # ticker_df = ticker_data.history(period='id', start='2010-1-1', end='2022-9-30')
 # st.line_chart(ticker_df.Close)
-duration = st.selectbox( 'Company', ('1M', '6M', 'YTD', '1Y', '5Y'), on_change=show_stock_trend)
+duration = st.selectbox( 'Company', ('1M', '6M', '1Y', '5Y'), on_change=show_stock_trend)
 
 
 income_statement_quarterly = fa.income_statement(str(ticker), fa_api_key, period="quarter")
