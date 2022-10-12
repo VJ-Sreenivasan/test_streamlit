@@ -59,7 +59,7 @@ def show_stock_trend(duration='1M'):
     st_dt = curr_date - relativedelta(months=12)
     print( st_dt)
   if duration== '5Y':
-    st_dt = curr_date - relativedelta(months=60))
+    st_dt = curr_date - relativedelta(months=60)
     print( st_dt)
   else:
     st_dt = '2022-01-01'
