@@ -49,16 +49,16 @@ ticker_data = yf.Ticker(str(ticker))
 def show_stock_trend(duration='1M'):
   curr_date=datetime.today().strftime('%Y-%m-%d')
   st.write('g8_1:',duration, curr_date)
-  if duration= '1M':
+  if duration== '1M':
     st_dt=curr_date - relativedelta(months=1)
     print( st_dt)
-  if duration= '6M':
+  if duration== '6M':
     st_dt = curr_date - relativedelta(months=6)
     print( st_dt)
-  if duration= '1Y':
+  if duration== '1Y':
     st_dt = curr_date - relativedelta(months=12)
     print( st_dt)
-  if duration= '5Y':
+  if duration== '5Y':
     st_dt = curr_date - relativedelta(months=60))
     print( st_dt)
   else:
