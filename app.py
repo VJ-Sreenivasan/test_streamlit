@@ -46,22 +46,17 @@ ticker_data = yf.Ticker(str(ticker))
 # hist_dfc = dfc.history(period=str(months2)+'mo', interval='3mo', auto_adjust = False)
 # st.write(ticker_df.columns)
 # hist_dfc.reset_index(inplace = True)
-
-def show_stock_trend(duration='1M'):
-  curr_date=datetime.today()
+duration = st.selectbox( 'Duration', ('','1M', '6M', '1Y', '5Y'))
+curr_date=datetime.today()
 #   st.write('g8_1:',duration, curr_date)
   if duration== '1M':
-    st_dt=curr_date.date() - relativedelta(months=1)
-    print( st_dt)
-  if duration== '6M':
-    st_dt = curr_date.date() - relativedelta(months=6)
-    print( st_dt)
-  if duration== '1Y':
-    st_dt = curr_date.date() - relativedelta(months=12)
-    print( st_dt)
-  if duration== '5Y':
-    st_dt = curr_date.date() - relativedelta(months=60)
-    print( st_dt)
+    st_dt=curr_date - relativedelta(months=1)
+  elif duration== '6M':
+    st_dt = curr_date - relativedelta(months=6)
+  elif duration== '1Y':
+    st_dt = curr_date - relativedelta(months=12)
+  elif duration== '5Y':
+    st_dt = curr_date - relativedelta(months=60)
   else:
     st_dt = '2022-01-01'
   ticker_df = ticker_data.history(period='1d', start=st_dt, end=curr_date.strftime('%Y-%m-%d'))
@@ -71,7 +66,7 @@ def show_stock_trend(duration='1M'):
   
 # ticker_df = ticker_data.history(period='id', start='2010-1-1', end='2022-9-30')
 # st.line_chart(ticker_df.Close)
-duration = st.selectbox( 'Company', ('1M', '6M', '1Y', '5Y'), on_change=show_stock_trend)
+
 
 
 income_statement_quarterly = fa.income_statement(str(ticker), fa_api_key, period="quarter")
