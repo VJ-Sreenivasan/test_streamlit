@@ -48,7 +48,7 @@ ticker_data = yf.Ticker(str(ticker))
 # hist_dfc.reset_index(inplace = True)
 
 def show_stock_trend(duration='1M'):
-  curr_date=datetime.today().strftime('%Y-%m-%d')
+  curr_date=datetime.today()
   st.write('g8_1:',duration, curr_date)
   if duration== '1M':
     st_dt=curr_date.date() - relativedelta(months=1)
@@ -64,7 +64,7 @@ def show_stock_trend(duration='1M'):
     print( st_dt)
   else:
     st_dt = '2022-01-01'
-  ticker_df = ticker_data.history(period='1d', start=st_dt, end=curr_date)
+  ticker_df = ticker_data.history(period='1d', start=st_dt.strftime('%Y-%m-%d'), end=curr_date.strftime('%Y-%m-%d'))
   st.line_chart(ticker_df.Close)
 
       
