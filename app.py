@@ -49,7 +49,7 @@ ticker_data = yf.Ticker(str(ticker))
 
 def show_stock_trend(duration='1M'):
   curr_date=datetime.today()
-  st.write('g8_1:',duration, curr_date)
+#   st.write('g8_1:',duration, curr_date)
   if duration== '1M':
     st_dt=curr_date.date() - relativedelta(months=1)
     print( st_dt)
@@ -64,8 +64,6 @@ def show_stock_trend(duration='1M'):
     print( st_dt)
   else:
     st_dt = '2022-01-01'
-  st.write('g8_2:',type(st_dt),st_dt)
-  st.write('g8_3:',type(curr_date),curr_date)
   ticker_df = ticker_data.history(period='1d', start=st_dt, end=curr_date.strftime('%Y-%m-%d'))
   st.line_chart(ticker_df.Close)
 
@@ -80,7 +78,7 @@ income_statement_quarterly = fa.income_statement(str(ticker), fa_api_key, period
 income_statement_quarterly = income_statement_quarterly.T.drop(income_statement_quarterly.T.index[-1])
 # income_statement_quarterly = income_statement_quarterly.reindex(index = income_statement_quarterly.index[::-1])
 income_statement_quarterly=income_statement_quarterly.query('index>= "2010-01"')
-income_statement_quarterly
+# income_statement_quarterly
 
 st.line_chart(income_statement_quarterly.revenue)
 
