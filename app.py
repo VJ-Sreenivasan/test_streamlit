@@ -46,9 +46,11 @@ ticker_data = yf.Ticker(str(ticker))
 # hist_dfc = dfc.history(period=str(months2)+'mo', interval='3mo', auto_adjust = False)
 # st.write(ticker_df.columns)
 # hist_dfc.reset_index(inplace = True)
-duration = st.selectbox( 'Duration', ('','1M', '6M', '1Y', '5Y'))
+duration = st.selectbox( 'Duration', ('YTD','1M', '6M', '1Y', '5Y'))
 curr_date=datetime.today()
 #   st.write('g8_1:',duration, curr_date)
+if duration=='YTD':
+  st_dt = '2022-01-01'
 if duration== '1M':
   st_dt=curr_date - relativedelta(months=1)
 elif duration== '6M':
@@ -74,8 +76,8 @@ income_statement_quarterly = income_statement_quarterly.T.drop(income_statement_
 # income_statement_quarterly = income_statement_quarterly.reindex(index = income_statement_quarterly.index[::-1])
 income_statement_quarterly=income_statement_quarterly.query('index>= "2010-01"')
 # income_statement_quarterly
-
-st.line_chart(income_statement_quarterly.revenue)
+income_param = st.selectbox( 'Duration', ('revenue', 'grossProfit', 'netIncome', 'eps'))
+st.line_chart(income_statement_quarterly[income_param])
 
 # st.write(income_statement_quarterly.columns)
 # st.write(income_statement_quarterly.index.tolist())
