@@ -46,7 +46,7 @@ ticker_data = yf.Ticker(str(ticker))
 # st.write(ticker_df.columns)
 # hist_dfc.reset_index(inplace = True)
 
-def show_stock_trend():
+def show_stock_trend(duration):
   curr_date=datetime.today().strftime('%Y-%m-%d')
   print('g8_1:',duration, curr_date)
   match duration:
