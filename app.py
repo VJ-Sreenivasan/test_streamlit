@@ -51,16 +51,16 @@ def show_stock_trend(duration='1M'):
   curr_date=datetime.today().strftime('%Y-%m-%d')
   st.write('g8_1:',duration, curr_date)
   if duration== '1M':
-    st_dt=curr_date - relativedelta(months=1)
+    st_dt=curr_date.date() - relativedelta(months=1)
     print( st_dt)
   if duration== '6M':
-    st_dt = curr_date - relativedelta(months=6)
+    st_dt = curr_date.date() - relativedelta(months=6)
     print( st_dt)
   if duration== '1Y':
-    st_dt = curr_date - relativedelta(months=12)
+    st_dt = curr_date.date() - relativedelta(months=12)
     print( st_dt)
   if duration== '5Y':
-    st_dt = curr_date - relativedelta(months=60)
+    st_dt = curr_date.date() - relativedelta(months=60)
     print( st_dt)
   else:
     st_dt = '2022-01-01'
