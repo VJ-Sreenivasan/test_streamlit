@@ -54,7 +54,7 @@ def show_stock_trend():
   
 # ticker_df = ticker_data.history(period='id', start='2010-1-1', end='2022-9-30')
 # st.line_chart(ticker_df.Close)
-duration = st.selectbox( 'Company', ('1M', '6M', 'YTD', '1Y', '5Y'), on_change=submit_delete_project)
+duration = st.selectbox( 'Company', ('1M', '6M', 'YTD', '1Y', '5Y'), on_change=show_stock_trend)
 
 
 income_statement_quarterly = fa.income_statement(str(ticker), fa_api_key, period="quarter")
