@@ -18,6 +18,8 @@ import re
 import fundamentalanalysis as fa
 from urllib.request import urlopen, Request
 from bs4 import BeautifulSoup
+from datetime import datetime
+
 
 fa_api_key = "9528170166318a21f58bf0270843c4f6"
 
@@ -40,11 +42,18 @@ ticker_data = yf.Ticker(str(ticker))
 # get historical market data
 # hist_dfp = dfp.history(period='120mo', interval='1d', auto_adjust = False)
 # hist_dfc = dfc.history(period=str(months2)+'mo', interval='3mo', auto_adjust = False)
-ticker_df = ticker_data.history(period='id', start='2010-1-1', end='2022-9-30')
 # st.write(ticker_df.columns)
 # hist_dfc.reset_index(inplace = True)
-st.line_chart(ticker_df.Close)
 
+# ticker_df = ticker_data.history(period='id', start='2010-1-1', end='2022-9-30')
+# st.line_chart(ticker_df.Close)
+duration = st.selectbox( 'Company', ('1M', '6M', 'YTD', '1Y', '5Y'), on_change=on_click=submit_delete_project)
+
+def show_stock_trend():
+  curr_date=datetime.today().strftime('%Y-%m-%d')
+  st.write(duration, curr_date)
+  ticker_df = ticker_data.history(period='1d', start='2010-1-1', end=curr_date)
+  st.line_chart(ticker_df.Close)
 
 income_statement_quarterly = fa.income_statement(str(ticker), fa_api_key, period="quarter")
 income_statement_quarterly = income_statement_quarterly.T.drop(income_statement_quarterly.T.index[-1])
