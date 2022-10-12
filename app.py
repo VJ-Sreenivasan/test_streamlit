@@ -66,7 +66,7 @@ def show_stock_trend(duration='1M'):
     st_dt = '2022-01-01'
   st.write('g8_2:',type(st_dt),st_dt)
   st.write('g8_3:',type(curr_date),curr_date)
-  ticker_df = ticker_data.history(period='1d', start=st_dt.strftime('%Y-%m-%d'), end=curr_date.strftime('%Y-%m-%d'))
+  ticker_df = ticker_data.history(period='1d', start=st_dt, end=curr_date.strftime('%Y-%m-%d'))
   st.line_chart(ticker_df.Close)
 
       
