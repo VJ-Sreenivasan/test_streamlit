@@ -19,6 +19,7 @@ import fundamentalanalysis as fa
 from urllib.request import urlopen, Request
 from bs4 import BeautifulSoup
 from datetime import datetime
+from dateutil.relativedelta import *
 
 
 fa_api_key = "9528170166318a21f58bf0270843c4f6"
