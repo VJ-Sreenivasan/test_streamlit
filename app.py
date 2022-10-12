@@ -47,7 +47,7 @@ ticker_data = yf.Ticker(str(ticker))
 
 # ticker_df = ticker_data.history(period='id', start='2010-1-1', end='2022-9-30')
 # st.line_chart(ticker_df.Close)
-duration = st.selectbox( 'Company', ('1M', '6M', 'YTD', '1Y', '5Y'), on_change=on_click=submit_delete_project)
+duration = st.selectbox( 'Company', ('1M', '6M', 'YTD', '1Y', '5Y'), on_change=submit_delete_project)
 
 def show_stock_trend():
   curr_date=datetime.today().strftime('%Y-%m-%d')
