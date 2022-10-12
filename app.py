@@ -22,6 +22,7 @@ from datetime import datetime
 
 
 fa_api_key = "9528170166318a21f58bf0270843c4f6"
+duration=None
 
 st.set_page_config(page_title="Virtual Market Analyst", page_icon="📈", layout="centered")
 st.header('Virtual Market Analyst')
@@ -45,15 +46,16 @@ ticker_data = yf.Ticker(str(ticker))
 # st.write(ticker_df.columns)
 # hist_dfc.reset_index(inplace = True)
 
-# ticker_df = ticker_data.history(period='id', start='2010-1-1', end='2022-9-30')
-# st.line_chart(ticker_df.Close)
-duration = st.selectbox( 'Company', ('1M', '6M', 'YTD', '1Y', '5Y'), on_change=submit_delete_project)
-
 def show_stock_trend():
   curr_date=datetime.today().strftime('%Y-%m-%d')
   st.write(duration, curr_date)
   ticker_df = ticker_data.history(period='1d', start='2010-1-1', end=curr_date)
   st.line_chart(ticker_df.Close)
+  
+# ticker_df = ticker_data.history(period='id', start='2010-1-1', end='2022-9-30')
+# st.line_chart(ticker_df.Close)
+duration = st.selectbox( 'Company', ('1M', '6M', 'YTD', '1Y', '5Y'), on_change=submit_delete_project)
+
 
 income_statement_quarterly = fa.income_statement(str(ticker), fa_api_key, period="quarter")
 income_statement_quarterly = income_statement_quarterly.T.drop(income_statement_quarterly.T.index[-1])
