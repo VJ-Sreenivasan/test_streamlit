@@ -125,4 +125,4 @@ for file_name, news_table in news_tables.items():
         # Append ticker, date, time and headline as a list to the 'parsed_news' list
         parsed_news.append([ticker, date, time, text])
         
-st.write(parsed_news[:5]) # print first 5 rows of news
+# st.write(parsed_news[:5]) # print first 5 rows of news
