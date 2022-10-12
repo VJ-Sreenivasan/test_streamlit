@@ -121,5 +121,12 @@ for file_name, news_table in news_tables.items():
         
         # Append ticker, date, time and headline as a list to the 'parsed_news' list
         parsed_news.append([ticker, date, time, text])
-        
+columns = ['ticker', 'date', 'time', 'headline']
+# Convert the parsed_news list into a DataFrame called 'parsed_and_scored_news'
+parsed_and_scored_news = pd.DataFrame(parsed_news, columns=columns)
 # st.write(parsed_news[:5]) # print first 5 rows of news
+tokenizer = AutoTokenizer.from_pretrained("ProsusAI/finbert")
+model = AutoModelForSequenceClassification.from_pretrained("ProsusAI/finbert")
+#tokenize text to be sent to model
+inputs = tokenizer(parsed_news, padding = True, truncation = True, return_tensors='pt')
+outputs = model(**inputs)
