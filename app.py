@@ -131,8 +131,8 @@ model = AutoModelForSequenceClassification.from_pretrained("ProsusAI/finbert")
 df_array = np.array(parsed_and_scored_news)
 df_list_headline = list(df_array[:,3]) 
 
-# inputs = tokenizer(df_list_headline, padding = True, truncation = True, return_tensors='pt')
-# outputs = model(**inputs)
+inputs = tokenizer(df_list_headline, padding = True, truncation = True, return_tensors='pt')
+outputs = model(**inputs)
 
 # predictions = torch.nn.functional.softmax(outputs.logits, dim=-1)
 
