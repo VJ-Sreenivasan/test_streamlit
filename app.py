@@ -139,9 +139,9 @@ predictions = torch.nn.functional.softmax(outputs.logits, dim=-1)
 # # model.config.id2label
 
 # #Tweet #Positive #Negative #Neutral
-# positive = predictions[:, 0].tolist()
-# negative = predictions[:, 1].tolist()
-# neutral = predictions[:, 2].tolist()
+positive = predictions[:, 0].tolist()
+negative = predictions[:, 1].tolist()
+neutral = predictions[:, 2].tolist()
 
 # table = {'ticker':df_list_ticker,
 #          "Positive":positive,
