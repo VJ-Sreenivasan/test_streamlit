@@ -13,3 +13,4 @@ feedparser
 beautifulsoup4
 transformers
 torch
+lxml
