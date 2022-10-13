@@ -128,24 +128,24 @@ parsed_and_scored_news = pd.DataFrame(parsed_news, columns=columns)
 tokenizer = AutoTokenizer.from_pretrained("ProsusAI/finbert")
 model = AutoModelForSequenceClassification.from_pretrained("ProsusAI/finbert")
 #tokenize text to be sent to model
-df_array = np.array(parsed_and_scored_news)
-df_list_headline = list(df_array[:,3]) 
+# df_array = np.array(parsed_and_scored_news)
+# df_list_headline = list(df_array[:,3]) 
 
-inputs = tokenizer(df_list_headline, padding = True, truncation = True, return_tensors='pt')
-outputs = model(**inputs)
+# inputs = tokenizer(df_list_headline, padding = True, truncation = True, return_tensors='pt')
+# outputs = model(**inputs)
 
-predictions = torch.nn.functional.softmax(outputs.logits, dim=-1)
+# predictions = torch.nn.functional.softmax(outputs.logits, dim=-1)
 
-# model.config.id2label
+# # model.config.id2label
 
-#Tweet #Positive #Negative #Neutral
-positive = predictions[:, 0].tolist()
-negative = predictions[:, 1].tolist()
-neutral = predictions[:, 2].tolist()
+# #Tweet #Positive #Negative #Neutral
+# positive = predictions[:, 0].tolist()
+# negative = predictions[:, 1].tolist()
+# neutral = predictions[:, 2].tolist()
 
-table = {'ticker':df_list_ticker,
-         "Positive":positive,
-         "Negative":negative, 
-         "Neutral":neutral}
+# table = {'ticker':df_list_ticker,
+#          "Positive":positive,
+#          "Negative":negative, 
+#          "Neutral":neutral}
       
-df2 = pd.DataFrame(table, columns = ["ticker", "Positive", "Negative", "Neutral"])
+# df2 = pd.DataFrame(table, columns = ["ticker", "Positive", "Negative", "Neutral"])
