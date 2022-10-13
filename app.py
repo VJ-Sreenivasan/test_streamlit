@@ -128,8 +128,8 @@ parsed_and_scored_news = pd.DataFrame(parsed_news, columns=columns)
 tokenizer = AutoTokenizer.from_pretrained("ProsusAI/finbert")
 model = AutoModelForSequenceClassification.from_pretrained("ProsusAI/finbert")
 #tokenize text to be sent to model
-# df_array = np.array(parsed_and_scored_news)
-# df_list_headline = list(df_array[:,3]) 
+df_array = np.array(parsed_and_scored_news)
+df_list_headline = list(df_array[:,3]) 
 
 # inputs = tokenizer(df_list_headline, padding = True, truncation = True, return_tensors='pt')
 # outputs = model(**inputs)
