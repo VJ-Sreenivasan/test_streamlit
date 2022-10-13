@@ -90,6 +90,7 @@ req = Request(url=url,headers={'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64
 response = urlopen(req)    
 # Read the contents of the file into 'html'
 html = BeautifulSoup(response)
+st.write(html)
 # Find 'news-table' in the Soup and load it into 'news_table'
 news_table = html.find(id='news-table')
 # Add the table to our dictionary
@@ -139,9 +140,9 @@ predictions = torch.nn.functional.softmax(outputs.logits, dim=-1)
 # # model.config.id2label
 
 # #Tweet #Positive #Negative #Neutral
-positive = predictions[:, 0].tolist()
-negative = predictions[:, 1].tolist()
-neutral = predictions[:, 2].tolist()
+# positive = predictions[:, 0].tolist()
+# negative = predictions[:, 1].tolist()
+# neutral = predictions[:, 2].tolist()
 
 # table = {'ticker':df_list_ticker,
 #          "Positive":positive,
