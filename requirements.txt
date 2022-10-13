@@ -5,7 +5,6 @@ seaborn
 numpy
 pandas
 plotly
-streamlit
 scikit-learn
 utils
 fundamentalanalysis
@@ -14,3 +13,4 @@ beautifulsoup4
 transformers
 torch
 lxml
+streamlit
